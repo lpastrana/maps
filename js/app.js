@@ -1,7 +1,7 @@
 var panorama;
 
 function initialize() {
-	// testing 'overley within street view'  var astorPlace = {lat: 20.682778, lng: -88.569167};
+	var astorPlace = {lat: 20.682778, lng: -88.569167};
 	// testing 'overley within street view'  var machu = {lat: -13.163697, lng: -72.545981};
 	var mapDiv = document.getElementById("map");
 	var mapOptions = {
@@ -9,7 +9,7 @@ function initialize() {
     	zoom: 5,
     	mapTypeId: google.maps.MapTypeId.ROADMAP
   	};
-  	var map = new google.maps.Map(mapDiv, mapOptions);
+  	var map = new google.maps.Map(mapDiv, mapOptions); 
 	
 	// locations is an array where the elements are added 
 	var locations = [];
@@ -48,7 +48,7 @@ function initialize() {
 	// We get the map's default panorama and set up some defaults.
 	// Note that we don't yet set it visible.
 	panorama = map.getStreetView();
-	panorama.setPosition();
+	panorama.setPosition(locations[i].latlng);
 	panorama.setPov(/** @type {google.maps.StreetViewPov} */({
 	heading: 265,
 	pitch: 0
